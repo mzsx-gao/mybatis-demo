@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<properties resource="db.properties" />
+	<!-- 配置实体类的别名 -->
+	<typeAliases>
+		<package name="com.gbicc.mybatis.domain"/>
+	</typeAliases>
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${name}" />
+				<property name="password" value="${password}" />
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers>
+		<mapper resource="com/gbicc/mybatis/test1/userMapper.xml"/>
+		<mapper class="com.gbicc.mybatis.test2.UserMapper"/>
+		<mapper resource="com/gbicc/mybatis/test3/classMapper.xml"/>
+		<mapper resource="com/gbicc/mybatis/test4/classMapper.xml"/>
+		<mapper resource="com/gbicc/mybatis/test5/userMapper.xml"/>
+		<mapper resource="com/gbicc/mybatis/test6/userMapper.xml"/>
+		<mapper resource="com/gbicc/mybatis/test7/userMapper.xml"/>
+	</mappers>
+</configuration>
