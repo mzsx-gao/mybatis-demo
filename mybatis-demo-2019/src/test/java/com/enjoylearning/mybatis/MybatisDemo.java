@@ -5,6 +5,8 @@ import com.enjoylearning.mybatis.entity.TPosition;
 import com.enjoylearning.mybatis.entity.TUser;
 import com.enjoylearning.mybatis.mapper.TUserMapper;
 import com.enjoylearning.mybatis.mapper.TUserTestMapper;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.reflection.DefaultReflectorFactory;
 import org.apache.ibatis.reflection.MetaObject;
@@ -74,6 +76,25 @@ public class MybatisDemo {
 //			System.out.println(tUser);
 //		}
 	}
+
+	@Test
+	// 分页插件测试
+	public void pageHelperTest(){
+		//--------------------第二阶段---------------------------
+		// 2.获取sqlSession
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		// 3.获取对应mapper
+		TUserMapper mapper = sqlSession.getMapper(TUserMapper.class);
+
+		//--------------------第三阶段---------------------------
+		// 4.执行查询语句并返回多条数据
+		Page<TUser> page = PageHelper.startPage(2,4);
+		List<TUser> users = mapper.selectAll();
+		for (TUser tUser : users) {
+			System.out.println(tUser);
+		}
+		System.out.println(page.toString());
+	}
 	
 	@Test
 	// ibatis编程模型 本质分析
@@ -131,7 +152,7 @@ public class MybatisDemo {
 		Byte sex = 1;
 
 		// 第一种方式使用map
-		Map<String, Object> params = new HashMap<String, Object>();
+		Map<String, Object> params = new HashMap<>();
 		params.put("email", email);
 		params.put("sex", sex);
 		List<TUser> list1 = mapper.selectByEmailAndSex1(params);

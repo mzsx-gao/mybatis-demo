@@ -17,6 +17,17 @@
 		<package name="com.enjoylearning.mybatis.entity" />
 	</typeAliases>
 
+	<plugins>
+		<!-- 自定义插件 -->
+		<plugin interceptor="com.enjoylearning.mybatis.Interceptors.ThresholdInterceptor">
+			<property name="threshold" value="10"></property>
+		</plugin>
+
+		<!-- 分页插件 -->
+		<plugin interceptor="com.github.pagehelper.PageInterceptor">
+			<property name="pageSizeZero" value="true" />
+		</plugin>
+	</plugins>
 
 	<!--配置environment环境 -->
 	<environments default="development">

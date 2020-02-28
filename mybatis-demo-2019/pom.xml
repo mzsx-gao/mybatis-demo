@@ -20,11 +20,11 @@
             <version>3.5.3</version>
         </dependency>
 
-        <!--<dependency>-->
-            <!--<groupId>com.github.pagehelper</groupId>-->
-            <!--<artifactId>pagehelper</artifactId>-->
-            <!--<version>5.1.4</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+            <version>5.1.11</version>
+        </dependency>
 
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
@@ -57,13 +57,6 @@
             <artifactId>spring-test</artifactId>
             <version>4.3.21.RELEASE</version>
             <scope>test</scope>
-        </dependency>
-
-        <!-- 日志相关依赖 -->
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>1.2.3</version>
         </dependency>
 
         <!-- mysql驱动 -->
