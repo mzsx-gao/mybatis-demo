@@ -1,24 +1,22 @@
-package com.gbicc.mybatis.test1;
+package com.gbicc.mybatis.test;
 
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.List;
+import com.gbicc.mybatis.entity.CUser;
+import com.gbicc.mybatis.entity.User;
+import com.gbicc.mybatis.mapper.UserMapper;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import com.gbicc.mybatis.domain.CUser;
-import com.gbicc.mybatis.domain.User;
-import com.gbicc.mybatis.test2.UserMapper;
 import org.junit.Test;
 
+import java.io.InputStream;
+import java.util.List;
 
-public class TestMybatis {
+public class BaseTest {
 	@Test
-	public  void selectOne() throws IOException{
+	public  void selectOne(){
 //		Reader reader=Resources.getResourceAsReader("conf.xml");
 //		SqlSessionFactory sqlSessionFactory=new SqlSessionFactoryBuilder().build(reader);
-		InputStream is=TestMybatis.class.getClassLoader().getResourceAsStream("conf.xml");
+		InputStream is= BaseTest.class.getClassLoader().getResourceAsStream("conf.xml");
 		SqlSessionFactory sqlSessionFactory=new SqlSessionFactoryBuilder().build(is);
 		SqlSession session=sqlSessionFactory.openSession();
 		String stament="com.gbicc.mybatis.test1.userMapper.getUser";
@@ -28,7 +26,7 @@ public class TestMybatis {
 	}
 	@Test
 	public void testAdd(){
-		InputStream is=TestMybatis.class.getClassLoader().getResourceAsStream("conf.xml");
+		InputStream is= BaseTest.class.getClassLoader().getResourceAsStream("conf.xml");
 		SqlSessionFactory sqlSessionFactory=new SqlSessionFactoryBuilder().build(is);
 		SqlSession session=sqlSessionFactory.openSession(true);
 		String stament="com.gbicc.mybatis.test1.userMapper.addUser";
@@ -38,7 +36,7 @@ public class TestMybatis {
 	}
 	@Test
 	public void testUpdate(){
-		InputStream is=TestMybatis.class.getClassLoader().getResourceAsStream("conf.xml");
+		InputStream is= BaseTest.class.getClassLoader().getResourceAsStream("conf.xml");
 		SqlSessionFactory sqlSessionFactory=new SqlSessionFactoryBuilder().build(is);
 		SqlSession session=sqlSessionFactory.openSession(true);
 		String stament="com.gbicc.mybatis.test1.userMapper.updateUser";
@@ -48,7 +46,7 @@ public class TestMybatis {
 	}
     @Test
 	public void testDelete(){
-		InputStream is=TestMybatis.class.getClassLoader().getResourceAsStream("conf.xml");
+		InputStream is= BaseTest.class.getClassLoader().getResourceAsStream("conf.xml");
 		SqlSessionFactory sqlSessionFactory=new SqlSessionFactoryBuilder().build(is);
 		SqlSession session=sqlSessionFactory.openSession(true);
 		String stament="com.gbicc.mybatis.test1.userMapper.deleteUser";
@@ -58,7 +56,7 @@ public class TestMybatis {
 	}
     @Test
 	public void selectAll(){
-		InputStream is=TestMybatis.class.getClassLoader().getResourceAsStream("conf.xml");
+		InputStream is= BaseTest.class.getClassLoader().getResourceAsStream("conf.xml");
 		SqlSessionFactory sqlSessionFactory=new SqlSessionFactoryBuilder().build(is);
 		SqlSession session=sqlSessionFactory.openSession(true);
 		String stament="com.gbicc.mybatis.test1.userMapper.getAllUsers";
@@ -68,7 +66,7 @@ public class TestMybatis {
 	}
     @Test
 	public void testAdd2(){
-		InputStream is=TestMybatis.class.getClassLoader().getResourceAsStream("conf.xml");
+		InputStream is= BaseTest.class.getClassLoader().getResourceAsStream("conf.xml");
 		SqlSessionFactory sqlSessionFactory=new SqlSessionFactoryBuilder().build(is);
 		SqlSession session=sqlSessionFactory.openSession(true);
 		UserMapper userMapper = session.getMapper(UserMapper.class);

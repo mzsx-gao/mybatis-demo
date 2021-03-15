@@ -56,7 +56,7 @@ public class MybatisDemo {
 	
 	@Test
 	// 快速入门
-	public void quickStart() throws IOException {
+	public void quickStart(){
 		//--------------------第二阶段---------------------------
 		// 2.获取sqlSession	
 		SqlSession sqlSession = sqlSessionFactory.openSession();

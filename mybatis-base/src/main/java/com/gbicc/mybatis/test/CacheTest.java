@@ -1,9 +1,9 @@
-package com.gbicc.mybatis.test7;
+package com.gbicc.mybatis.test;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
-import com.gbicc.mybatis.domain.CUser;
+import com.gbicc.mybatis.entity.CUser;
 import com.gbicc.mybatis.util.SqlSessionFactoryUtils;
 import org.junit.Test;
 

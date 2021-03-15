@@ -1,4 +1,4 @@
-package com.gbicc.mybatis.domain;
+package com.gbicc.mybatis.entity;
 
 import java.util.List;
 

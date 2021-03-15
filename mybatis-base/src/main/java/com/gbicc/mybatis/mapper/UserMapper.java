@@ -1,4 +1,4 @@
-package com.gbicc.mybatis.test2;
+package com.gbicc.mybatis.mapper;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
-import com.gbicc.mybatis.domain.CUser;
-import com.gbicc.mybatis.domain.User;
+import com.gbicc.mybatis.entity.CUser;
+import com.gbicc.mybatis.entity.User;
 
 public interface UserMapper {
 
