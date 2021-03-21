@@ -94,11 +94,11 @@
 	</environments>
 	<mappers>
 		<mapper resource="com/gbicc/mybatis/test1/userMapper.xml"/>
-		<mapper class="com.gbicc.mybatis.mapper.UserMapper"/>
-		<mapper resource="com/gbicc/mybatis/test3/classMapper.xml"/>
-		<mapper resource="com/gbicc/mybatis/test4/classMapper.xml"/>
-		<mapper resource="com/gbicc/mybatis/test5/userMapper.xml"/>
-		<mapper resource="com/gbicc/mybatis/test6/userMapper.xml"/>
-		<mapper resource="com/gbicc/mybatis/test7/userMapper.xml"/>
+		<!--<mapper class="com.gbicc.mybatis.mapper.UserMapper"/>-->
+		<!--<mapper resource="com/gbicc/mybatis/test3/classMapper.xml"/>-->
+		<!--<mapper resource="com/gbicc/mybatis/test4/classMapper.xml"/>-->
+		<!--<mapper resource="com/gbicc/mybatis/test5/userMapper.xml"/>-->
+		<!--<mapper resource="com/gbicc/mybatis/test6/userMapper.xml"/>-->
+		<!--<mapper resource="com/gbicc/mybatis/test7/userMapper.xml"/>-->
 	</mappers>
 </configuration>

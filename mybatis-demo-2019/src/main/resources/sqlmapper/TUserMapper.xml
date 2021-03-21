@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.enjoylearning.mybatis.mapper.TUserMapper">
+
 	<cache></cache>
 
 	<select id="selectByPrimaryKey" resultType="TUser">
@@ -9,9 +10,9 @@
 		from t_user
 		where id = #{id,jdbcType=INTEGER}
 	</select>
-	
-	
-	
+
+
+
 	<select id="selectAll" resultType="TUser">
 		select
 		id, userName, realName, sex, mobile, email, note
@@ -33,10 +34,10 @@
 			<result column="note" property="note"/>
 		</association>
 	</resultMap>
-	
+
 	<select  id="selectTestResultMap" resultMap="UserResultMap" >
 		select
-		    a.id, 
+		    a.id,
 		    userName,
 			realName,
 			sex,
@@ -54,13 +55,13 @@
 
 
 
-	
+
 <!--  	<cache></cache> -->
- 	
+
 
 	<resultMap id="BaseResultMap" type="TUser">
 
-		<!-- <constructor> <idArg column="id" javaType="int"/> <arg column="userName" 
+		<!-- <constructor> <idArg column="id" javaType="int"/> <arg column="userName"
 			javaType="String"/> </constructor> -->
 		<id column="id" property="id" />
  		<result column="userName" property="userName" />
@@ -93,7 +94,7 @@
 
 	<select id="selectUserPosition1" resultMap="userAndPosition1"  >
 		select
-		    a.id, 
+		    a.id,
 		    userName,
 			realName,
 			sex,
@@ -160,33 +161,33 @@
 		a.mobile
 		from t_user a
 	</select>
-	
-	
+
+
 	<resultMap id="userAndHealthReportMale" extends="userAndHealthReport" type="TUser">
 		<collection property="healthReports" column="id"
 			select= "com.enjoylearning.mybatis.mapper.THealthReportMaleMapper.selectByUserId"></collection>
 	</resultMap>
-	
+
 	<resultMap id="userAndHealthReportFemale" extends="userAndHealthReport" type="TUser">
 		<collection property="healthReports" column="id"
 			select= "com.enjoylearning.mybatis.mapper.THealthReportFemaleMapper.selectByUserId"></collection>
 	</resultMap>
-	
+
 	<resultMap id="userAndHealthReport" extends="BaseResultMap" type="TUser">
-				 
+
 		<discriminator column="sex"  javaType="int">
 			<case value="1" resultMap="userAndHealthReportMale"/>
 			<case value="2" resultMap="userAndHealthReportFemale"/>
 		</discriminator>
 	</resultMap>
-	
+
 
 	<select id="selectUserHealthReport" resultMap="userAndHealthReport">
 		select
 		<include refid="Base_Column_List" />
 		from t_user a
 	</select>
-	
+
 	<resultMap type="TUser" id="userRoleInfo" extends="BaseResultMap">
 		<collection property="roles" ofType="TRole" columnPrefix="role_">
 			<result column="id" property="id" />
@@ -194,10 +195,10 @@
 			<result column="note" property="note" />
 		</collection>
 	</resultMap>
-	
-	
+
+
 	<select id="selectUserRole" resultMap="userRoleInfo">
-		select a.id, 
+		select a.id,
 		      a.userName,
 		      a.realName,
 		      a.sex,
@@ -209,11 +210,11 @@
 		from t_user a,
 		     t_user_role b,
 		     t_role c
-		where a.id = b.user_id AND 
+		where a.id = b.user_id AND
 		      b.role_id = c.id
-     </select>	
-     
-     
+     </select>
+
+
      <select id="selectUserByRoleId" resultMap="userRoleInfo">
         select
 		<include refid="Base_Column_List" />
@@ -221,15 +222,15 @@
 		     t_user_role b
 		where a.id = b.user_id and
 		      b.role_id = #{id}
-     </select>	
-	
+     </select>
+
 
 	<select id="selectByEmailAndSex1" resultMap="BaseResultMap"		parameterType="map">
 		select
 		<include refid="Base_Column_List" />
 		from t_user a
 		 where a.email like CONCAT('%', #{email}, '%') and
-		 a.sex =#{sex} 
+		 a.sex =#{sex}
 	</select>
 
 	<select id="selectByEmailAndSex2" resultMap="BaseResultMap">
@@ -265,9 +266,9 @@
 		select
 		<include refid="Base_Column_List" />
 		from t_user a
-		where   1=1  
+		where   1=1
 		<if test="email != null and email != ''">
-			and a.email like CONCAT('%', #{email}, '%') 
+			and a.email like CONCAT('%', #{email}, '%')
 		</if>
 		<if test="sex != null ">
 			and a.sex = #{sex}
@@ -287,7 +288,7 @@
 			</if>
 		</where>
 	</select>
-	
+
 	<select id="selectChooseOper" resultMap="BaseResultMap">
 		select
 		<include refid="Base_Column_List" />
@@ -332,7 +333,7 @@
 	</update>
 
 	<update id="updateIfAndSetOper" parameterType="TUser">
-	
+
 	    update t_user
 		<set>
 			<if test="userName != null">
@@ -354,7 +355,7 @@
 				note = #{note,jdbcType=VARCHAR},
 			</if>
 		</set>
-		where id = #{id,jdbcType=INTEGER} 
+		where id = #{id,jdbcType=INTEGER}
 	</update>
 
 
@@ -415,7 +416,7 @@
 		where a.userName in
 		<foreach collection="array" open="(" close=")" item="userName" separator=",">
 			#{userName}
-		</foreach> 
+		</foreach>
 	</select>
 
 

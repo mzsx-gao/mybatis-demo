@@ -10,17 +10,13 @@ import java.util.Map;
 public interface TUserMapper {
 	
 	TUser selectByPrimaryKey(Integer id);
-	
-	
+
 	List<TUser> selectAll();
 	
 	List<TUser> selectTestResultMap();
 	
 	List<TUser> selectAllTest();
-	
-	
-	
-	
+
     int deleteByPrimaryKey(Integer id);
 
     int insert1(TUser record);
@@ -28,7 +24,6 @@ public interface TUserMapper {
     int insert2(TUser record);
 
     int insertSelective(TUser record);
-
 
     int updateByPrimaryKeySelective(TUser record);
 

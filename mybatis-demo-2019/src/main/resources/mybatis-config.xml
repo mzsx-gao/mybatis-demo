@@ -17,17 +17,17 @@
 		<package name="com.enjoylearning.mybatis.entity" />
 	</typeAliases>
 
-	<plugins>
-		<!-- 自定义插件 -->
-		<plugin interceptor="com.enjoylearning.mybatis.Interceptors.ThresholdInterceptor">
-			<property name="threshold" value="10"></property>
-		</plugin>
+	<!--<plugins>-->
+		<!--&lt;!&ndash; 自定义插件 &ndash;&gt;-->
+		<!--<plugin interceptor="com.enjoylearning.mybatis.Interceptors.ThresholdInterceptor">-->
+			<!--<property name="threshold" value="10"></property>-->
+		<!--</plugin>-->
 
-		<!-- 分页插件 -->
-		<plugin interceptor="com.github.pagehelper.PageInterceptor">
-			<property name="pageSizeZero" value="true" />
-		</plugin>
-	</plugins>
+		<!--&lt;!&ndash; 分页插件 &ndash;&gt;-->
+		<!--<plugin interceptor="com.github.pagehelper.PageInterceptor">-->
+			<!--<property name="pageSizeZero" value="true" />-->
+		<!--</plugin>-->
+	<!--</plugins>-->
 
 	<!--配置environment环境 -->
 	<environments default="development">
@@ -47,12 +47,12 @@
 	<mappers>
 		<!--直接映射到相应的mapper文件 -->
 		<mapper resource="sqlmapper/TUserMapper.xml"/>
-		<mapper resource="sqlmapper/TUserTestMapper.xml" />
-		<mapper resource="sqlmapper/TRoleMapper.xml" />
-		<mapper resource="sqlmapper/TJobHistoryMapper.xml" />
-		<mapper resource="sqlmapper/TPositionMapper.xml" />
-		<mapper resource="sqlmapper/THealthReportFemaleMapper.xml" />
-		<mapper resource="sqlmapper/THealthReportMaleMapper.xml" />
+		<!--<mapper resource="sqlmapper/TUserTestMapper.xml" />-->
+		<!--<mapper resource="sqlmapper/TRoleMapper.xml" />-->
+		<!--<mapper resource="sqlmapper/TJobHistoryMapper.xml" />-->
+		<!--<mapper resource="sqlmapper/TPositionMapper.xml" />-->
+		<!--<mapper resource="sqlmapper/THealthReportFemaleMapper.xml" />-->
+		<!--<mapper resource="sqlmapper/THealthReportMaleMapper.xml" />-->
 	</mappers>
 
 
