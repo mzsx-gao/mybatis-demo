@@ -1,6 +1,4 @@
 package com.enjoylearning.mybatis;
-//STEP 1. 导入sql相关的包
-
 import com.enjoylearning.mybatis.entity.TUser;
 import org.junit.Test;
 
@@ -23,10 +21,9 @@ public class JdbcDemo {
 		PreparedStatement stmt = null;
 		List<TUser> users = new ArrayList<>();
 		try {
-			// STEP 2: 注册mysql的驱动,现在已经不需要了，因为DriverManager会利用SPI机制自动寻找，即现在的数据库厂商提供
-			//的驱动包已经都支持SPI机制了，即META-INFI/services目录下有对应的文件
+			// 注册mysql的驱动,现在已经不需要了，因为DriverManager会利用SPI机制自动寻找，即现在的数据库厂商提供
+			// 的驱动包已经都支持SPI机制了，即META-INFI/services目录下有对应的文件
 //			Class.forName("com.mysql.jdbc.Driver");
-
 			// STEP 3: 获得一个连接
 			System.out.println("Connecting to database...");
 			conn = DriverManager.getConnection(DB_URL, USER, PASS);

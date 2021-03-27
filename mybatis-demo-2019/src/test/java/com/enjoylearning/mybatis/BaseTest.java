@@ -38,7 +38,7 @@ import java.sql.SQLException;
 import java.util.*;
 import java.util.Map.Entry;
 
-public class MybatisDemo {
+public class BaseTest {
 
     private SqlSessionFactory sqlSessionFactory;
 
