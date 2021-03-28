@@ -80,13 +80,11 @@ public class AssociationQueryTest {
 		}
 	}
 	
-	
-	
+
 	/*1.从表字段没有设置别名
 	2.中间表可以只出现在sql中
 	3.出现在xml文件中的方法 可以不出现在接口中？
 	*/
-	
 	@Test
 	// 多对多 嵌套
 	public void testManyToMany() {
@@ -108,7 +106,5 @@ public class AssociationQueryTest {
 		for (TRole tRole : roles) {
 			System.out.println(tRole.getUsers());
 		}
-		
-		
 	}
 }
