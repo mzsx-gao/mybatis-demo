@@ -12,6 +12,8 @@
         <module>mybatis-base</module>
         <module>mybatis-spring</module>
         <module>mybatis-demo-2019</module>
+        <module>mybatis-plugins/mybatis-plugin</module>
+        <module>mybatis-plugins/mybatis-page</module>
     </modules>
 
     <dependencies>
