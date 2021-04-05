@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 
-public class AssociationQueryTest {
+public class AssoQueryTest {
 	
 	private SqlSessionFactory sqlSessionFactory;
 

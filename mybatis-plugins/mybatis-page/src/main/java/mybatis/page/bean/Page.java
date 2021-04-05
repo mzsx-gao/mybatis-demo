@@ -1,10 +1,12 @@
-package enjoy.bean;
+package mybatis.page.bean;
 
+import lombok.Data;
 import lombok.ToString;
 
 import java.util.ArrayList;
 
 @ToString
+@Data
 public class Page<T> extends ArrayList<T> {
 
     /**
@@ -46,42 +48,6 @@ public class Page<T> extends ArrayList<T> {
         this.endRow = this.startRow + this.pageSize * (this.pageNum > 0 ? 1 : 0);
     }
 
-    public int getPageNum() {
-        return pageNum;
-    }
-
-    public void setPageNum(int pageNum) {
-        this.pageNum = pageNum;
-    }
-
-    public int getPageSize() {
-        return pageSize;
-    }
-
-    public void setPageSize(int pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public int getStartRow() {
-        return startRow;
-    }
-
-    public void setStartRow(int startRow) {
-        this.startRow = startRow;
-    }
-
-    public int getEndRow() {
-        return endRow;
-    }
-
-    public void setEndRow(int endRow) {
-        this.endRow = endRow;
-    }
-
-    public long getTotal() {
-        return total;
-    }
-
     public void setTotal(long total) {
         this.total = total;
         if (total == -1) {
@@ -93,11 +59,5 @@ public class Page<T> extends ArrayList<T> {
         } else {
             pages = 0;
         }
-    }
-    public int getPages() {
-        return pages;
-    }
-    public void setPages(int pages) {
-        this.pages = pages;
     }
 }

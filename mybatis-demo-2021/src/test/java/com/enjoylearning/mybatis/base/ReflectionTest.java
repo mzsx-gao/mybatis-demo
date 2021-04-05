@@ -1,4 +1,4 @@
-package com.enjoylearning.mybatis;
+package com.enjoylearning.mybatis.base;
 
 import com.enjoylearning.mybatis.entity.TPosition;
 import com.enjoylearning.mybatis.entity.TUser;

@@ -1,6 +1,6 @@
-package enjoy;
+package mybatis.page;
 
-import enjoy.bean.Page;
+import mybatis.page.bean.Page;
 
 public class PageUtil {
 

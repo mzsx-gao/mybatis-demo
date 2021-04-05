@@ -10,6 +10,8 @@
 		<!-- 开启懒加载 -->
 		 <!-- 当启用时，有延迟加载属性的对象在被调用时将会完全加载任意属性。否则，每种属性将会按需要加载。默认：true -->
 	  	<setting name="aggressiveLazyLoading" value="false" />
+		<!--全局全局地开启或关闭配置文件中的所有映射器已经配置的任何缓存，默认为true-->
+		<setting name="cacheEnabled" value="false"/>
 	</settings>
 
 	<!-- 别名定义 -->
@@ -17,17 +19,22 @@
 		<package name="com.enjoylearning.mybatis.entity" />
 	</typeAliases>
 
-	<!--<plugins>-->
-		<!--&lt;!&ndash; 自定义插件 &ndash;&gt;-->
-		<!--<plugin interceptor="com.enjoylearning.mybatis.Interceptors.ThresholdInterceptor">-->
-			<!--<property name="threshold" value="10"></property>-->
-		<!--</plugin>-->
+	<plugins>
+		<!-- 自定义插件 -->
+		<!--<plugin interceptor="com.enjoylearning.mybatis.Interceptors.ThresholdInterceptor">
+			<property name="threshold" value="10"></property>
+		</plugin>-->
 
-		<!--&lt;!&ndash; 分页插件 &ndash;&gt;-->
-		<!--<plugin interceptor="com.github.pagehelper.PageInterceptor">-->
-			<!--<property name="pageSizeZero" value="true" />-->
-		<!--</plugin>-->
-	<!--</plugins>-->
+		<!-- 分页插件 -->
+		<!--<plugin interceptor="com.github.pagehelper.PageInterceptor">
+			<property name="pageSizeZero" value="true" />
+		</plugin>-->
+
+		<plugin interceptor="mybatis.page.plugin.PageInterceptor">
+			<property name="name" value="gao"/>
+		</plugin>
+
+	</plugins>
 
 	<!--配置environment环境 -->
 	<environments default="development">

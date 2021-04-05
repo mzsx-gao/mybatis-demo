@@ -1,4 +1,4 @@
-package enjoy.parse;
+package mybatis.page.parse;
 
 import net.sf.jsqlparser.expression.Alias;
 import net.sf.jsqlparser.expression.Expression;
@@ -22,8 +22,8 @@ public class CountSqlParser {
     /**
      * 聚合函数，以下列函数开头的都认为是聚合函数
      */
-    private static final Set<String> AGGREGATE_FUNCTIONS = new HashSet<String>(Arrays.asList(
-            ("APPROX_COUNT_DISTINCT," +
+    private static final Set<String> AGGREGATE_FUNCTIONS = new HashSet<>(
+        Arrays.asList(("APPROX_COUNT_DISTINCT," +
                     "ARRAY_AGG," +
                     "AVG," +
                     "BIT_" +
@@ -142,7 +142,7 @@ public class CountSqlParser {
      */
     public String getSmartCountSql(String sql, String name) {
         //解析SQL
-        Statement stmt = null;
+        Statement stmt;
         //特殊sql不需要去掉order by时，使用注释前缀
         if(sql.indexOf(KEEP_ORDERBY) >= 0){
             return getSimpleCountSql(sql);
@@ -227,7 +227,7 @@ public class CountSqlParser {
      */
     public boolean isSimpleCount(PlainSelect select) {
         //包含group by的时候不可以
-        if (select.getGroupByColumnReferences() != null) {
+        if (select.getGroupBy() != null) {
             return false;
         }
         //包含distinct的时候不可以

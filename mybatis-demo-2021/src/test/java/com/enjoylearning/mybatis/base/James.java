@@ -1,4 +1,4 @@
-package com.enjoylearning.mybatis;
+package com.enjoylearning.mybatis.base;
 
 import com.enjoylearning.mybatis.factory.product.SmallMovie;
 import com.enjoylearning.mybatis.factory.real.SmallMovieFactory;

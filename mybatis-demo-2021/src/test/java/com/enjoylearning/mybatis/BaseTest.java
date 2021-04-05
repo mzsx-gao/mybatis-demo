@@ -5,18 +5,7 @@ import com.enjoylearning.mybatis.entity.TPosition;
 import com.enjoylearning.mybatis.entity.TUser;
 import com.enjoylearning.mybatis.mapper.TUserMapper;
 import com.enjoylearning.mybatis.mapper.TUserTestMapper;
-import com.github.pagehelper.Page;
-import com.github.pagehelper.PageHelper;
 import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.reflection.DefaultReflectorFactory;
-import org.apache.ibatis.reflection.MetaObject;
-import org.apache.ibatis.reflection.ReflectorFactory;
-import org.apache.ibatis.reflection.factory.DefaultObjectFactory;
-import org.apache.ibatis.reflection.factory.ObjectFactory;
-import org.apache.ibatis.reflection.property.PropertyTokenizer;
-import org.apache.ibatis.reflection.wrapper.BeanWrapper;
-import org.apache.ibatis.reflection.wrapper.DefaultObjectWrapperFactory;
-import org.apache.ibatis.reflection.wrapper.ObjectWrapperFactory;
 import org.apache.ibatis.session.ExecutorType;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -35,8 +24,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
-import java.util.*;
-import java.util.Map.Entry;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class BaseTest {
 
@@ -71,25 +61,6 @@ public class BaseTest {
 //		for (TUser tUser : users) {
 //			System.out.println(tUser);
 //		}
-    }
-
-    @Test
-    // 分页插件测试
-    public void pageHelperTest() {
-        //--------------------第二阶段---------------------------
-        // 2.获取sqlSession
-        SqlSession sqlSession = sqlSessionFactory.openSession();
-        // 3.获取对应mapper
-        TUserMapper mapper = sqlSession.getMapper(TUserMapper.class);
-
-        //--------------------第三阶段---------------------------
-        // 4.执行查询语句并返回多条数据
-        Page<TUser> page = PageHelper.startPage(2, 4);
-        List<TUser> users = mapper.selectAll();
-        for (TUser tUser : users) {
-            System.out.println(tUser);
-        }
-        System.out.println(page.toString());
     }
 
     @Test
@@ -137,6 +108,7 @@ public class BaseTest {
 
 
     // 多参数查询
+
     @Test
     public void testManyParamQuery() {
         // 2.获取sqlSession
@@ -165,7 +137,6 @@ public class BaseTest {
         List<TUser> list3 = mapper.selectByEmailAndSex3(esb);
         System.out.println(list3.size());
     }
-
     @Test
     // 测试插入数据自动生成id
     public void testInsertGenerateId1() throws IOException {
@@ -219,8 +190,8 @@ public class BaseTest {
 
     }
 
-    //--------------------------------动态sql---------------------------------------
 
+    //--------------------------------动态sql---------------------------------------
     @Test
     // if用于select，并与where配合
     public void testSelectIfOper() {
@@ -373,7 +344,6 @@ public class BaseTest {
 
     //------------------------------动态sql结束----------------------------------------
 
-
     @Test
     public void mybatisGeneratorTest() throws FileNotFoundException {
         List<String> warnings = new ArrayList<String>(); //警告信息list
@@ -392,7 +362,7 @@ public class BaseTest {
         DefaultShellCallback callback = new DefaultShellCallback(overwrite);
         MyBatisGenerator myBatisGenerator = null;
         try {
-            myBatisGenerator = new MyBatisGenerator(config, callback, warnings);//实例化生成器  
+            myBatisGenerator = new MyBatisGenerator(config, callback, warnings);//实例化生成器
         } catch (InvalidConfigurationException e) {
             e.printStackTrace();
         }
@@ -406,6 +376,8 @@ public class BaseTest {
             e.printStackTrace();
         }
     }
+
+
 
 	
 /*	@Test
