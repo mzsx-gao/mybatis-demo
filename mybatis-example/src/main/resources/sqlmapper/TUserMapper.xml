@@ -55,7 +55,7 @@
 
 
 
-<!--  	<cache></cache> -->
+  	<cache></cache>
 
 
 	<resultMap id="BaseResultMap" type="TUser">

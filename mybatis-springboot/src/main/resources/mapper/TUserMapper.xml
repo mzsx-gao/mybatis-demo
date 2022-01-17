@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gao.mybatis.springboot.mapper.TUserMapper">
+
+    <resultMap id="BaseResultMap" type="TUser">
+        <id column="id" property="id"/>
+        <result column="userName" property="userName"/>
+        <result column="realName" property="realName"/>
+        <result column="sex" property="sex"/>
+        <result column="mobile" property="mobile"/>
+        <result column="email" property="email"/>
+        <result column="note" property="note"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+		id, userName, realName, sex, mobile, email, note,
+		position_id
+	</sql>
+
+
+    <select id="selectByEmailAndSex1" resultMap="BaseResultMap" parameterType="map">
+        select
+        <include refid="Base_Column_List"/>
+        from t_user a
+        where a.email like CONCAT('%', #{email}, '%') and
+        a.sex =#{sex}
+    </select>
+
+</mapper>
