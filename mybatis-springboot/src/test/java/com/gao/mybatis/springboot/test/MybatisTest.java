@@ -2,18 +2,11 @@ package com.gao.mybatis.springboot.test;
 
 import com.gao.mybatis.springboot.entity.TUser;
 import com.gao.mybatis.springboot.mapper.TUserMapper;
-import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
